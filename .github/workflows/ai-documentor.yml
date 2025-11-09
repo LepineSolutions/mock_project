@@ -32,8 +32,8 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      GITLAB_USER_NAME: ${{ secrets.GITLAB_USER_NAME }}
-      GITLAB_USER_EMAIL: ${{ secrets.GITLAB_USER_EMAIL }}
+      REPO_USER_NAME: ${{ secrets.REPO_USER_NAME }}
+      REPO_USER_EMAIL: ${{ secrets.REPO_USER_EMAIL }}
 
     steps:
       - name: Checkout repository
@@ -53,7 +53,7 @@ jobs:
           echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_ed25519
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Determine Agent UID and GID
         id: agent_ids
@@ -72,8 +72,8 @@ jobs:
             -v "$(pwd):${REPO_PATH}" \
             -v "$HOME/.ssh:/home/agent/.ssh" \
             -e MODEL_API_KEY="${MODEL_API_KEY}" \
-            -e GITLAB_USER_NAME="${GITLAB_USER_NAME}" \
-            -e GITLAB_USER_EMAIL="${GITLAB_USER_EMAIL}" \
+            -e REPO_USER_NAME="${REPO_USER_NAME}" \
+            -e REPO_USER_EMAIL="${REPO_USER_EMAIL}" \
             -e GIT_SSH_COMMAND="ssh -i /home/agent/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
             ${AGENT_IMAGE} \
             full --commit-sha ${{ github.sha }} --branch ${{ github.ref_name }}
