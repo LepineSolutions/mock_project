@@ -67,12 +67,11 @@ jobs:
 
       - name: Run AI Documentor
         run: |
-          mkdir -p ${REPO_PATH}
           docker run --rm \
-            -v "$(pwd):${REPO_PATH}" \
-            -v "$HOME/.ssh:/home/agent/.ssh" \
-            -e MODEL_API_KEY="${MODEL_API_KEY}" \
-            -e REPO_USER_NAME="${REPO_USER_NAME}" \
-            -e REPO_USER_EMAIL="${REPO_USER_EMAIL}" \
+            -v "${{ github.workspace }}:${REPO_PATH}" \
+            -v "${HOME}/.ssh:/home/agent/.ssh:ro" \
+            -e MODEL_API_KEY="${{ secrets.MODEL_API_KEY }}" \
+            -e REPO_USER_NAME="${GITHUB_ACTOR}" \
+            -e REPO_USER_EMAIL="${GITHUB_ACTOR}@users.noreply.github.com" \
             ${AGENT_IMAGE} \
-            full --commit-sha ${{ github.sha }} --branch ${{ github.ref_name }}
+            full --commit-sha "${{ github.sha }}" --branch "${{ github.ref_name }}"
