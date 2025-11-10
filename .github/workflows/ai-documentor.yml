@@ -9,7 +9,7 @@ on:
       - develop
 
 env:
-  AGENT_IMAGE: registry.gitlab.com/paul_lepine_solutions/ai-documentor/agent-test:latest
+  AGENT_IMAGE: registry.gitlab.com/paul_lepine_solutions/ai-documentor/agent-test-v4:latest
   DOCKER_DRIVER: overlay2
   REPO_PATH: /home/agent/repo
 
