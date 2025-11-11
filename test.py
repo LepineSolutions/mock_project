@@ -19,3 +19,10 @@ if __name__ == "__main__":
     # Test the greeting function
     message = greet("World")
     print(message)
+    
+    # Additional simple tests
+    assert calculate_square(0) == 0
+    assert calculate_square(-3) == 9
+    assert abs(calculate_square(2.5) - 6.25) < 1e-9
+    assert greet("Alice") == "Hello, Alice!"
+    print("All additional tests passed.")
