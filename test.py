@@ -1,10 +1,12 @@
+def add(a, b):
+    """Add two numbers and return the result."""
+    return a + b
+def multiply(a, b):
+    """Multiply two numbers and return the product."""
+    return a * b
 def calculate_square(number):
-    """
-    Calculate the square of a given number
-    """
-    return number ** 2
-
-def greet(name):
+    """Calculate the square of a given number and return it."""
+    return number * number
     """
     Return a greeting message
     """
