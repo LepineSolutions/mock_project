@@ -74,6 +74,7 @@ jobs:
         run: |
           docker run --rm \
             -v "${{ github.workspace }}:${REPO_PATH}" \
+            -v "${{ github.workspace }}/.git:${REPO_PATH}/.git" \
             -v "${HOME}/.ssh:/home/agent/.ssh:ro" \
             -e MODEL_API_KEY="${{ secrets.MODEL_API_KEY }}" \
             -e REPO_USER_NAME="${GITHUB_ACTOR}" \
