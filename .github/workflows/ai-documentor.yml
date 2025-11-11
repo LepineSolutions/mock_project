@@ -39,7 +39,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
+          
+      - name: Set Git remote URL
+        run: git remote set-url origin git@github.com/${{ github.repository }}.git
 
       - name: Set up Docker CLI
         run: |
