@@ -26,3 +26,20 @@ if __name__ == "__main__":
     assert abs(calculate_square(2.5) - 6.25) < 1e-9
     assert greet("Alice") == "Hello, Alice!"
     print("All additional tests passed.")
+    
+    # Additional functions
+    def add(a, b):
+        """Add two numbers"""
+        return a + b
+    
+    def multiply(a, b):
+        """Multiply two numbers"""
+        return a * b
+    
+    # Test new functions
+    print(f"\n5 + 3 = {add(5, 3)}")
+    print(f"5 * 3 = {multiply(5, 3)}")
+    
+    assert add(10, 20) == 30
+    assert multiply(4, 7) == 28
+    print("All tests passed successfully!")

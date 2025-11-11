@@ -50,5 +50,6 @@ jobs:
             -e REPO_USER_NAME="${{ github.actor }}" \
             -e REPO_USER_EMAIL="${{ github.actor }}@users.noreply.github.com" \
             -e GIT_REMOTE_URL="git@github.com:${{ github.repository }}.git" \
+            -e GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
             ${{ env.AGENT_IMAGE }} \
             full --commit-sha "${{ github.sha }}" --branch "${{ github.ref_name }}"
