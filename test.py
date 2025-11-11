@@ -43,3 +43,22 @@ if __name__ == "__main__":
     assert add(10, 20) == 30
     assert multiply(4, 7) == 28
     print("All tests passed successfully!")
+    
+    # More dummy code
+    def subtract(a, b):
+        """Subtract b from a"""
+        return a - b
+
+    def divide(a, b):
+        """Divide a by b"""
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        return a / b
+
+    # Test more dummy functions
+    print(f"10 - 4 = {subtract(10, 4)}")
+    print(f"20 / 5 = {divide(20, 5)}")
+
+    assert subtract(7, 2) == 5
+    assert divide(9, 3) == 3
+    print("More dummy tests passed.")
