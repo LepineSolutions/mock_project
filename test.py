@@ -1,10 +1,24 @@
 def calculate_square(number):
-    """
-    Calculate the square of a given number
-    """
-    return number ** 2
+    """Calculate the square of a given number.
 
+    Args:
+        number (int | float): The number to square.
+
+    Returns:
+        int | float: The square of the input number.
+    """
+    return number * number
+    """
 def greet(name):
+    """Generate a greeting message for the given name.
+
+    Args:
+        name (str): Name to greet.
+
+    Returns:
+        str: Greeting string in the format "Hello, {name}!".
+    """
+    return f"Hello, {name}!"
     """
     Return a greeting message
     """
