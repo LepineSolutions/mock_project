@@ -1,3 +1,6 @@
+"""Test module providing arithmetic utility functions.
+It includes `calculate_square`, `greet`, and example `add`/`multiply` functions used in the script's demo block.
+"""
 def calculate_square(number):
     """
     Calculate the square of a given number
